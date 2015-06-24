@@ -10,3 +10,12 @@ github_username:  Elijah Dou
 
 # Build settings
 markdown: kramdown
+
+# setting for analytics helper
+#analytics :
+#  provider : google
+#  google : 
+#      tracking_id : 'UA-64460072-1'
+analytics: 
+	provider: custom
+	
