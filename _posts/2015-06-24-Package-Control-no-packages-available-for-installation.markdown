@@ -2,7 +2,7 @@
 layout: post
 title:  "Package Control:There are no packages available for installation的解决方法"
 date:   2015-06-24 15:09:32
-categories: jekyll update
+categories: blog
 ---
 
 # 原谅我不想学vim，我感觉它变态。现在好的编辑器也挺多，我主要用sublime。
