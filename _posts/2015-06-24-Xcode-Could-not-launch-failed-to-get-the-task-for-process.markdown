@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Xcode Could not launch-failed to get the task for progress"
-date:   2015-06-16 15:09:32
+date:   2015-06-24 14:09:32
 categories: jekyll update
 ---
 
