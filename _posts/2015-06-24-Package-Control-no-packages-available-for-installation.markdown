@@ -17,9 +17,9 @@ categories: jekyll update
 # 具体方法：
 ## 在终端中输入命令 sudo sublime /etc/hosts  （鄙视我的用Vimba）
 ## 在hosts文件最后添加：   
-- '# to fix sublime Package Control IPV6 issue'
-- '50.116.34.243 sublime.wbond.net'
-- '#end'
+- '# to fix sublime Package Control IPV6 issue'        
+- '50.116.34.243 sublime.wbond.net'     
+- '#end'      
 ## 重启sublime，再try一下试试。
 
 
