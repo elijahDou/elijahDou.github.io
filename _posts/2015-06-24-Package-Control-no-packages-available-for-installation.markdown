@@ -14,7 +14,7 @@ categories: jekyll update
 # Holy shit，这是什么鬼，Google之，[StackOverFlow](http://stackoverflow.com/questions/25105139/sublime-text-2-there-are-no-packages-available-for-installation)上面解答的是IPv6的问题，我们配置一下hosts文件可以解决之。
 
 
-# 具体方法：
+# 具体方法：         
 ## 在终端中输入命令 sudo sublime /etc/hosts  （鄙视我的用Vimba）
 ## 在hosts文件最后添加：   
 - '# to fix sublime Package Control IPV6 issue'        
