@@ -17,5 +17,4 @@ markdown: kramdown
 #  google : 
 #      tracking_id : 'UA-64460072-1'
 analytics: 
-	provider: custom
-	
+    provider: custom

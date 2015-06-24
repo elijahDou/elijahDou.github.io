@@ -3,6 +3,7 @@ layout: post
 title:  "Package Control:There are no packages available for installation的解决方法"
 date:   2015-06-24 15:09:32
 categories: blog
+analytics : true
 ---
 
 # 原谅我不想学vim，我感觉它变态。现在好的编辑器也挺多，我主要用sublime。
@@ -30,18 +31,4 @@ categories: blog
 
 
 # mark一下。
-
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-64460072-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
