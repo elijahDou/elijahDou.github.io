@@ -11,4 +11,7 @@ categories: jekyll update
 # 原来是Build Setting中Code Signing的Code Signing Identity配置问题。使用的签名是distribution certificate，即发布者证书，它不允许在真机上直接运行。
 
 
-## '换用开发者证书就OK了。'
+![示意图](http://ww1.sinaimg.cn/large/0069kYsZjw1etf8cztv0qj30ic05hgm9.jpg)
+
+
+#### **换用开发者证书就OK了。**

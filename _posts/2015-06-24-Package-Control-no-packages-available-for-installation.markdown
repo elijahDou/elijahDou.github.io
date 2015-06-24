@@ -11,6 +11,9 @@ categories: jekyll update
 # 在安装完Package Control后，安装其他插件包的时候，遇到了错误：Package Control:There are no packages available for installation。 
 
 
+![报错图](http://ww2.sinaimg.cn/large/0069kYsZjw1etf7vpy7bhj30ca05d74r.jpg)
+
+
 # Holy shit，这是什么鬼，Google之，[StackOverFlow](http://stackoverflow.com/questions/25105139/sublime-text-2-there-are-no-packages-available-for-installation)上面解答的是IPv6的问题，我们配置一下hosts文件可以解决之。
 
 
