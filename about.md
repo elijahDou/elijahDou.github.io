@@ -8,6 +8,9 @@ permalink: /about/
 一个睡不醒的宅男，喜爱篮球、动漫、音乐；喜欢DIY但是水平低洼的不行。
 
 
+
+
+
 blog工具信息：
 Jekyll自定义主题及其基本用法可见:[jekyllrb.com](http://jekyllrb.com/)
 
