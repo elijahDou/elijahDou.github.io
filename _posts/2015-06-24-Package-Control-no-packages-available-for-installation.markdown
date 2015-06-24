@@ -14,13 +14,13 @@ categories: jekyll update
 # Holy shit，这是什么鬼，Google之，[StackOverFlow](http://stackoverflow.com/questions/25105139/sublime-text-2-there-are-no-packages-available-for-installation)上面解答的是IPv6的问题，我们配置一下hosts文件可以解决之。
 
 
-# 具体方法：         
-## 在终端中输入命令 sudo sublime /etc/hosts  （鄙视我的用Vimba）
-## 在hosts文件最后添加：   
-- '# to fix sublime Package Control IPV6 issue'        
-- '50.116.34.243 sublime.wbond.net'     
-- '#end'      
-## 重启sublime，再try一下试试。
+# 具体方法：     
+    1. 在终端中输入命令 sudo sublime /etc/hosts  （编辑器任选）        
+    2. 在hosts文件最后添加：  
+       # to fix sublime Package Control IPV6 issue                  
+       50.116.34.243 sublime.wbond.net      
+       #end         
+    3. 重启sublime，再try一下试试。
 
 
 # [这里](http://blog.csdn.net/freshlover/article/details/44261229)有一篇中文文章，还介绍了其他两种sublime常见问题的解决方法。
