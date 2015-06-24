@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "欢迎来到Elijah Dou的Blog"
 date:   2015-06-16 15:09:32
 categories: jekyll update
 ---
