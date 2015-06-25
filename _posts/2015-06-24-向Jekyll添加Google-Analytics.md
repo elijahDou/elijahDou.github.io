@@ -4,7 +4,7 @@ title:  "向Jekyll添加Google Analytics"
 date:   2015-06-24 17:25:32
 categories: blog
 analytics : true
-tags: Jekyll google analytics
+tags: [Jekyll, google analytics]
 ---
 
 # 由于要用Jekyll + github page搭建blog，想要添加analytics的功能，便于管理。便从网上找了方法，记录总结下来，与大家分享。

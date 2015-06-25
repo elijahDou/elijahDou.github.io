@@ -4,7 +4,7 @@ title:  "Xcode Could not launch-failed to get the task for progress"
 date:   2015-06-24 14:09:32
 categories: blog
 analytics : true
-tags: Xcode launch failed
+tags: [Xcode, launch failed]
 ---
 
 # 在测试项目代码时，选择debug版本编译通过，测试正常；在release版本下，可以编译成功，但是APP一在真机上运行就会报如题所示的错误，程序闪退。
