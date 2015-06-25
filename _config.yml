@@ -18,3 +18,12 @@ markdown: kramdown
 #      tracking_id : 'UA-64460072-1'
 analytics: 
     provider: custom
+
+# 多说评论
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : elijahdou
+  disqus :
+      short_name : elijahdou
+
