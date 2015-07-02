@@ -82,7 +82,7 @@ Podfile文件的语法见[这里](https://guides.cocoapods.org/using/the-podfile
 
 // 此处省略若干行`
 
-最简单的写更新Podfile的方法，就是赋值其中的***加粗斜体***部分到Podfile中即可。
+最简单的写更新Podfile的方法，就是复制其中的***加粗斜体***部分到Podfile中即可。
 
 ***
 
