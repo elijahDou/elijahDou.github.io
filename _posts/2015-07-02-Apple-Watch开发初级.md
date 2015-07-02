@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Apple Watch 开发初级"
-date:   2015-06-23 09:11:55
+date:   2015-07-202 14:27:55
 ---
 
  *** 本文转自 [猛戳这里](http://chiefky.github.io/ios/2015/06/29/watch开发-初级.html) ***
