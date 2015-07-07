@@ -129,22 +129,8 @@ appledoc的介绍和使用，google之。
 
 ##### 之后会得到一个`custom_pod_spec_name.podspec`文件。下面的工作就是修改`.podspec`文件中相关内容。
 {% highlight ruby %}
-#
-#  Be sure to run `pod spec lint test.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
 
 Pod::Spec.new do |s|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
 
   s.name         = "test"
   s.version      = "0.0.1"
@@ -153,123 +139,29 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    A longer description of test in Markdown format.
 
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
-                   DESC
-
   s.homepage     = "http://EXAMPLE/test"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
+  s.license      = "MIT"
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
 
   s.author             = { "jk.dou" => "jk.dou@zuche.com" }
-  # Or just: s.author    = "jk.dou"
-  # s.authors            = { "jk.dou" => "jk.dou@zuche.com" }
-  # s.social_media_url   = "http://twitter.com/jk.dou"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
-
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
+  
   s.source       = { :git => "http://EXAMPLE/test.git", :tag => "0.0.1" }
 
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
-
 end
 {% endhighlight %}
 
-##### 原谅我贴这么长的代码，好多内容是自解释的注释，能看懂吧。
+##### 好多内容是自解释的注释，按照注释修改完成后，删掉注释，大概就是上面的代码的样子。
 
-#### 以下是文件修改的方法，取自[这里，谢谢了](http://studentdeng.github.io/blog/2013/09/13/cocoapods-tutorial/) 
+#### 以下是文件修改的方法 
+
+***
 
 #### s.source s.source_files
 
@@ -277,19 +169,29 @@ end
 
 `{ :git => "https://github.com/studentdeng/ShareCenterExample.git"}`
 
-##### 我们的git项目中，并不是所有的代码都需要被引用到我们的代码中，通常project还会包括一些example，test cases等，这里的 source_files 就是用来指定一些文件夹，或是文件。我这里的设置也很容易理解，就是ShareCenter下面的递归后的所有后缀是h、m的子文件。
+##### s.source_files表示源文件的路径，注意这个路径是 ***相对podspec文件而言*** 的。
+
+##### 我们的git项目中，并不是所有的代码都需要被引用到我们的代码中，通常project还会包括一些example，test cases等，这里的 source_files 就是用来指定一些文件夹或文件。
+
+***
 
 #### s.frameworks s.library
 
-##### 这里配置的就是我们的framework 和 library，这里注意一下library的名字规则就好。
+##### 这里配置的就是我们的framework 和 library，这里注意一下library的名字规则就好,需要用到的frameworks，***不需要加.frameworks后缀***。
+
+***
 
 #### vendored_libraries
 
-##### 这里用来指定外部的静态库。这里我们指定了sina sso认证的SDK
+##### 用来指定外部的静态库。
+
+***
 
 #### s.prefix_header_contents
 
-##### 这里用来指定预编译的配置，这里一定要鄙视一下renren的超级渣渣SDK。这里提供一种解决方法。
+##### 用来指定预编译的配置。
+
+***
 
 #### 部署我们的配置到cocoapods中
 
@@ -297,22 +199,29 @@ end
 
 ##### 这里最好是去fork一个自己的project，然后保存一个自己或是团队的配置，这样不会在更新cocoapods的时候，丢掉自己的配置。当然，如果觉得自己搞的还不错，也可以去pull requests。
 
-##### 在之前提到的目录~/.cocoapods/repo/master/ 下面，我们可以看到已经有超级多的项目了，我们可以也可以通过
+##### 在之前提到的目录~/.cocoapods/repo/master/ 下面，我们可以看到已经有超级多的项目了，我们可以也可以通过 `$ pod search XXX` 来查找项目，或是直接在这个文件夹下面找。
 
-`$ pod search XXX`
+##### LICENSE文件
 
-##### 来查找项目，或是直接在这个文件夹下面找，可以学习不少project的配置技巧，我这里也是从他们学到的。
+CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验证不会通过。license的类型有很多种，详情可以参考[网站](https://tldrlegal.com)。
 
-##### 最后添加一个project的配置是这样子的。
+##### 注册Truck
+如果已经注册过了，可以跳过这一步。 CocoPods从0.33加入了Trunk，这样方便了发布自己的Pod。注册很简单，命令如下：
+`pod trunk register your-email "your nickname"`
 
-##### 例如上面的例子， 在~/.cocoapods/repo/master/ 下面创建一个文件夹ShareCenter，然后在创建一个2.0的文件夹表示这是version2.0的配置。 然后在把之前的ShareCenter.podspec复制到2.0目录下面。
+然后就可以使用如下命令来发布和升级自己的Pod：
+`pod trunk push NAME.podspec`
 
-##### 也就是最后的目录是这样子的
+##### 在使用Trunk发布前，要讲自己的代码提交到github上，并打上tag。 `Podfile`内书写这种自定义的Pod的格式如下：
 
-`~/.cocoapods/repo/master/ShareCenter/2.0/ShareCenter.podspec`
+`pod 'name', :git => 'custom source url', :tag => 'tag version'`
+
+##### 发布成功后就可以用 `pod search`命令搜索到自定义的 pod 就说明成功了。
 
 ##### 如果希望更多的了解cocoapods，还是需要去[Github](https://github.com/CocoaPods/CocoaPods)上面。 
 
 
-
+> 参考资料：
+> [cocopod使用篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
+> [CocoaPods](http://nshipster.cn/cocoapods/)
 
