@@ -8,7 +8,7 @@ tags: [ios, security, obfuscate]
 
 ### [iOS Class Guard](https://github.com/Polidea/ios-class-guard#pro-version) github 译文
 
-#### iOS-Class-Guard是一个用于OC类、协议、属性和方法明混淆的命令行工具。它是class-dump的扩展。这个工具会生成一个symbol table，这个table在编译期间会包含进去。iOS-Class-Guard能有效的隐藏绝大多数的类、协议、方法、属性和i-var名。
+#### iOS-Class-Guard是一个用于OC类、协议、属性和方法名混淆的命令行工具。它是class-dump的扩展。这个工具会生成一个symbol table，这个table在编译期间会包含进工程中。iOS-Class-Guard能有效的隐藏绝大多数的类、协议、方法、属性和 实例变量 名。
 
 #### iOS-Class-Guard不是应用安全的最终解决方案，但是它绝对能让攻击者更难读懂你的程序。
 
@@ -28,9 +28,9 @@ tags: [ios, security, obfuscate]
 
 #### 工作原理
 
-##### 这个工具对应用程序的编译版本起作用。它会读取Mach—O对象文件的OC部分，并解析其中所有的类、属性、方法、i-var，之后添加所有的symbols到列表中。然后它会读取所有的依赖框架，并做相同的解析OC代码结构的处理，不同的是，此时是把symbol是添加到禁止列表中。之后 ***所有的并且不在禁止列表中***的symbols会被混淆处理。每一个symbol由随机生成的 子母和数字 组成。每次执行混淆操作，都会生成一个唯一的symbol map。之后这个map会格式化成一个C的宏定义 头文件，并包含到 .pch文件中。 然后，它会找出XIB和storyboard并更新里面的名字（即IB文件也会被有效的混淆掉）。 这个工具还会查找工程内的xcdatamodel文件并添加其中的类和属性名到禁止列表。 在编译期间内，所有定义在头文件内的symbol都会用生成的、不同的符号编译。
+##### 这个工具对应用程序的编译版本起作用。它会读取Mach—O对象文件的OC部分，并解析其中所有的类、属性、方法、实例变量，之后添加所有的symbols到列表中。然后它会读取所有的依赖框架，并做相同的解析OC代码结构的处理，不同的是，此时是把symbol添加到禁止列表中。之后 ***所有的并且不在禁止列表中***的symbols会被混淆处理。每一个symbol由随机生成的 子母和数字 组成。每次执行混淆操作，都会生成一个唯一的symbol map。之后这个map会格式化成一个C的宏定义 头文件，并包含到 .pch文件中。 然后，它会找出XIB和storyboard并更新里面的名字（即IB文件也会被有效的混淆掉）。 这个工具还会查找工程内的xcdatamodel文件并添加其中的类和属性名到禁止列表。 在编译期间内，所有定义在头文件内的symbol都会用对应的生成的不同的符号替换并编译。
 
-##### iOS-Class-Guard也提供了对cocoapod库的混淆。这个工具会 根据用户提供的pods路径 自动遍历所有列出的target 并 查找 .xcconfig文件和要修改的预编译头文件路径。让后添加预先生成的头文件到库 .pch头文件，并更新target的.xcconfig文件中的头文件search path。
+##### iOS-Class-Guard也提供了对cocoapod库的混淆。这个工具会 根据用户提供的pods路径 自动遍历所有列出的target 并 查找 .xcconfig文件和要修改的预编译头文件路径。然后添加预先生成的头文件到库 .pch头文件，并更新target的.xcconfig文件中的头文件的search path参数。
 
 ##### iOS-Class-Guard还会生成一个json格式的symbol映射。这个映射可以用来处理crash报告是的逆向处理。注意 iOS-Class-Guard不混淆system symbol，所有如果在自定义类中的某些属性和方法与system symbol有相同的名字，则不会被混淆。
 
@@ -136,13 +136,11 @@ Usage: ios-class-guard [options] <mach-o-file>
 ##### iOS Class Guard支持对自动崩溃报告工具的逆向处理，如*Crashlytics, Fabric, BugSense/Splunk Mint, Crittercism or HockeyApp*。使用`--dsym`参数，iOS Class Guard会替换提供的*dSYM*文件内的原符号和混淆符号。强烈推荐 在*Build Phases/Run script*
 一开始 添加如下所示的脚本来完成*dSYM*的自动转换处理，该功能已在上述的工具中测试通过。
 
-{% highlight shell %}
-if [ -f "$PROJECT_DIR/symbols.json" ]; then
+`if [ -f "$PROJECT_DIR/symbols.json" ]; then
 /usr/local/bin/ios-class-guard -m $PROJECT_DIR/symbols.json --dsym $DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME --dsym-out $DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME
 fi
 
-\# Another invocations eg.: ./Crashlytics.framework/run <Crashlytics secret #1> <Crashlytics secret #2>
-{% endhighlight %}
+\# Another invocations eg.: ./Crashlytics.framework/run <Crashlytics secret #1> <Crashlytics secret #2>`
 
 ##### 手动使用方法如下 `ios-class-guard -m symbols.json --dsym MyProject_obfuscated.app.dSYM --dsym-out MyProject_unobfuscated.app.dSYM`
 
@@ -153,7 +151,7 @@ fi
 
 #### XIB and Storyboards
 
-##### ios-class-guard处理*XIB 和 Storyboard*文件的效果很好，但是当使用外部库，且库内包含了IB文件的bundle，***一定要忽略***这些symbol，否则你在启动app时，他们不会再有效。处理这种清苦就要使用class filter了。
+##### ios-class-guard处理*XIB 和 Storyboard*文件的效果很好，但是当使用外部库，且库内包含了IB文件的bundle，***一定要忽略***这些symbol，否则你在启动app时，他们不会再有效。处理这种情况就要使用class filter了。
 
 ***
 
