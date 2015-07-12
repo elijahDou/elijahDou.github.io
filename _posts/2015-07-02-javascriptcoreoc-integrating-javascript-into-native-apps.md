@@ -16,3 +16,17 @@ tags: [iOS, JavaScript, Objective-c, integer, app]
 #### 而JSPatch应用在iOS APP的原理如下：
 
 
+#### 直接上内容：
+
+#### OC中调用JS代码
+##### 在头文件中导入 `#import <JavaScriptCore/JavaScriptCore.h>` 示例代码如下
+{% highlight objective-c %}
+int main () {
+    JSContext *context = [[JSContext alloc] init];
+    JSValue *result = [context evaluateScript:@"2 + 2"];
+    NSLog(@"2 + 2 = %d", [result toInt32]);
+    return 0;
+}
+{% endhighlight %}
+
+##### 
