@@ -44,10 +44,10 @@ tags: [ios, security, obfuscate]
 
 #### 用法
 
-##### 集成iOS-Class-Guard到项目中需要一下几步：
+##### 集成iOS-Class-Guard到项目中需要以下几步：
 1. 下载 `obfuscate_project` 到工程的根目录。 终端内执行 `curl -o obfuscate_project https://raw.githubusercontent.com/Polidea/ios-class-guard/master/contrib/obfuscate_project && chmod +x obfuscate_project`
 2. 更新 `obfuscate_project` 内的project file、scheme 和 configuration name
-3. 执行 `bash obfuscate_project`。每一个release都应该执行一次该操作。 ***保存包含symbol映射的json文件 以便于在crash时能逆向得到原来的symbol***
+3. 执行 `bash obfuscate_project`。每一次release都应该执行一次该操作。 ***保存包含symbol映射的json文件 以便于在crash时能逆向得到原来的symbol***
 4. 用Xcode或其他工具 Build、test archive工程
 
 ##### 上面是基本步骤，也可以添加 额外的target，这些target会在编译期间自动 重新生成symbol map。
