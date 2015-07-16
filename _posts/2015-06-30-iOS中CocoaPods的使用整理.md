@@ -201,11 +201,11 @@ end
 
 ##### 在之前提到的目录~/.cocoapods/repo/master/ 下面，我们可以看到已经有超级多的项目了，我们可以也可以通过 `$ pod search XXX` 来查找项目，或是直接在这个文件夹下面找。
 
-##### LICENSE文件
+#### LICENSE文件
 
 CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验证不会通过。license的类型有很多种，详情可以参考[网站](https://tldrlegal.com)。
 
-##### 注册Truck
+#### 注册Truck
 如果已经注册过了，可以跳过这一步。 CocoPods从0.33加入了Trunk，这样方便了发布自己的Pod。注册很简单，命令如下：
 `pod trunk register your-email "your nickname"`
 
@@ -224,4 +224,6 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 > 参考资料：
 > [cocopod使用篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
 > [CocoaPods](http://nshipster.cn/cocoapods/)
+> [发布自己的pods到CocoaPods trunk](http://www.tuicool.com/articles/6FF7fi)
+> [CocoaPods详解之----制作篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
 

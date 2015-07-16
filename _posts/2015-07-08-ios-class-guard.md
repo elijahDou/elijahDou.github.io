@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS Class Guard"
+title: "iOS Class Guard github译文及使用经验总结"
 description: "iOS应用的加密混淆"
 category: blog
 tags: [ios, security, obfuscate]
@@ -28,7 +28,7 @@ tags: [ios, security, obfuscate]
 
 #### 工作原理
 
-##### 这个工具对应用程序的编译版本起作用。它会读取Mach—O对象文件的OC部分，并解析其中所有的类、属性、方法、实例变量，之后添加所有的symbols到列表中。然后它会读取所有的依赖框架，并做相同的解析OC代码结构的处理，不同的是，此时是把symbol添加到禁止列表中。之后 ***所有的并且不在禁止列表中***的symbols会被混淆处理。每一个symbol由随机生成的 子母和数字 组成。每次执行混淆操作，都会生成一个唯一的symbol map。之后这个map会格式化成一个C的宏定义 头文件，并包含到 .pch文件中。 然后，它会找出XIB和storyboard并更新里面的名字（即IB文件也会被有效的混淆掉）。 这个工具还会查找工程内的xcdatamodel文件并添加其中的类和属性名到禁止列表。 在编译期间内，所有定义在头文件内的symbol都会用对应的生成的不同的符号替换并编译。
+##### 这个工具只对应用程序的编译版本起作用（工具的脚本文件会首先编译项目源码，得到应用文件，之后使用class-dump处理应用文件）。它会读取Mach—O对象文件的OC部分（工具只对mach-o和fat类型的文件有用，如果是想混淆自定义的静态，需要稍微转换一下策略），并解析其中所有的类、属性、方法、实例变量，之后添加所有的symbols到列表中。然后它会读取所有的依赖框架，并做相同的解析OC代码结构的处理，不同的是，此时是把symbol添加到禁止列表中。之后 ***所有的并且不在禁止列表中***的symbols会被混淆处理。每一个symbol由随机生成的 子母和数字 组成。每次执行混淆操作，都会生成一个唯一的symbol map。之后这个map会格式化成一个C的宏定义 头文件，并包含到 .pch文件中。 然后，它会找出XIB和storyboard并更新里面的名字（即IB文件也会被有效的混淆掉）。 这个工具还会查找工程内的xcdatamodel文件并添加其中的类和属性名到禁止列表。 在编译期间内，所有定义在头文件内的symbol都会用对应的生成的不同的符号替换并编译。
 
 ##### iOS-Class-Guard也提供了对cocoapod库的混淆。这个工具会 根据用户提供的pods路径 自动遍历所有列出的target 并 查找 .xcconfig文件和要修改的预编译头文件路径。然后添加预先生成的头文件到库 .pch头文件，并更新target的.xcconfig文件中的头文件的search path参数。
 
