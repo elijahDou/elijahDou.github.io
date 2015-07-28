@@ -146,7 +146,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
 
-  s.author             = { "jk.dou" => "jk.dou@zuche.com" }
+  s.author       = { "***" => "***@**" }
   
   s.source       = { :git => "http://EXAMPLE/test.git", :tag => "0.0.1" }
 
