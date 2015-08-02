@@ -148,10 +148,3 @@ WatchKit App只包含一个storyboard 文件和一个image set集 ，之前似�
 *关于iPhone 与 watch之间的数据共享，Apple 建议还是在 iOS app 中完成，并通过 App Groups 进行数据共享，从而在 Watch Extension 中拿到这些数据。*
 
 
-
-
-
-
-
-
-

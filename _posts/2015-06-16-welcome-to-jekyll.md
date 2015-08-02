@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title:  "欢迎来到Elijah Dou的Blog"
 date:   2015-06-16 15:09:32
@@ -21,4 +22,5 @@ print_hi('visitor')
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help
+
 

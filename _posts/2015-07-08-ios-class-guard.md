@@ -248,5 +248,3 @@ fi
 - Control flow obfuscation
 - Code virtualization with encryption
 - API method execution hiding
-
-

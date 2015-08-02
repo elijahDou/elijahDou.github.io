@@ -1,43 +1,9 @@
 ---
 layout: default
 ---
-<div class="post">
+<h1>{{ page.title }}</h1>
+<span class="time">{{ page.date | date_to_string }}</span>
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
-</div>
-
-
-<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="{{ page.title }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"elijahdou"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
-
-
- <!-- 多说分享 -->
-<div class="ds-share flat" data-thread-key="{{ page.title }}" data-title="{{ page.title }}" data-images="http://ww3.sinaimg.cn/large/0069kYsZjw1eth88f33gnj30b403w74o.jpg" data-content="{{ page.content }}" data-url="{{ page.url }}">
-    <div class="ds-share-aside-right">
-      <div class="ds-share-aside-inner">
-      </div>
-      <div class="ds-share-aside-toggle">分享到</div>
-    </div>
+<div class="content">
+	<div class="post">{{ content }}</div>
 </div>
