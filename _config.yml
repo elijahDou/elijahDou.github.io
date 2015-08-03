@@ -1,14 +1,14 @@
-name: Herring Cove
-author: Herring Cove
-baseurl: /herring-cove
-description: theme for jekyll
-github: http://www.github.com/arnp
+name: Elijah Dou'Blog
+author: Elijah Dou
+baseurl: /blog
+description: This is a blog maintained by elijah dou for iOS techniques and so on.
+github: https://github.com/elijahdou
 twitter: http://www.twitter.com/
 facebook: http://www.facebook.com
 linkedin: http://www.linkedin.com
-email: rnpatel[at]me.com
+email: elijahdou@gmail.com
 location: 42°2'16"N   70°12'47"W
-disqus: diqus-username
+disqus: elijahdou
 
 ##Make sure to edit the above fields, especially for disqus.
 
@@ -29,3 +29,20 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+# setting for analytics helper
+#analytics :
+#  provider : google
+#  google : 
+#      tracking_id : 'UA-64460072-1'
+analytics: 
+    provider: custom
+
+# 多说评论
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : elijahdou
+  disqus :
+      short_name : elijahdou
+      
