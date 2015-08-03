@@ -1,37 +1,41 @@
-# Simply Grey
-Simply Grey is a nice, easy on the eyes Jekyll theme that makes great use of grey colours. 
+Herring Cove
+============
 
-![Screenshot of Simply Grey](http://i.imgur.com/sKpj8Oz.png)
+Herring Cove is a clean and responsive theme for Jekyll. 
 
-## Installation
-There are a few requirements to using and installing the Simply Grey theme.
 
-1. You must have Jekyll installed. If you have no done this, do it by executing the following code. 
-`gem install jekyll`
+### Overview 
 
-2. You must have git installed. If you do not have this, install it on your system by using your package manager. For example, in Debian, type 
-`sudo apt-get install git`
+* Fixed Sidebar with social links
+* Minimal design 
+* Comments by Disqus
+* Social Sharing abilities 
+* Easy to configure
+* Based on Bootstrap
 
-Once you have done this, installation is pretty easy.
+### Screenshots
 
-Simply clone the repository
+![screenshot](/images/screenshot1.png)
+![screenshot](/images/screenshot2.png)
 
-`git clone https://github.com/mondss/simplygrey-jekyll.git`
+### Setup
 
-and serve the blog up so people can see it
+1. Install Jekyll
+2. Fork or [download](https://github.com/arnp/herring-cove/archive/master.zip) this theme repo
+3. Edit the `_config.yml` file
 
-`cd simplygrey-jekyll; jekyll serve`
+You can change the showcase image by replacing `showcase.jpg` file in the `images` folder. I'll try to find a better way to do this soon. 
 
-## Configuring SimplyGrey
-The SimplyGrey theme is actually very easy to configure.
+### Download
 
-### Adding more links to the navigation bar
-1. Open the _config.yml file
-2. Add some more values to the urls hash like the others that already exist there.
+[download](https://github.com/arnp/herring-cove/archive/master.zip)
 
-### Changing the site name
-1. Open the _config.yml file
-2. Change the site name
+### License
+* [MIT](http://opensource.org/licenses/MIT)
 
-### Changing the logo/picture image
-1. Drop a 75x75 image into the img directory.
+-------------
+Herring Cove is always a work in progress and as such, I hope to clean up the code and add features as time permits. Feel free to add your own additions. 
+
+*What's with the name?*
+
+[Herring Cove](http://www.capecodbeachchair.com/beachguide/index.cfm?page=3&BeachID=5) is a beach on Cape Cod in Provincetown, Massachusetts. If you're in the area, be sure to check it out!

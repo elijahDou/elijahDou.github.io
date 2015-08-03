@@ -1,29 +1,31 @@
-# Site settings
-title: Elijah Dou'Blog
-email: elijahdou@gmail.com
-description: > # this means to ignore newlines until "baseurl:" 
-  This is a blog maintained by elijah dou for iOS techniques and so on.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://github.com/elijahdou" # the base hostname & protocol for your site
-twitter_username: none
-github_username: elijahdou
+name: Herring Cove
+author: Herring Cove
+baseurl: /herring-cove
+description: theme for jekyll
+github: http://www.github.com/arnp
+twitter: http://www.twitter.com/
+facebook: http://www.facebook.com
+linkedin: http://www.linkedin.com
+email: rnpatel[at]me.com
+location: 42°2'16"N   70°12'47"W
+disqus: diqus-username
 
-# Build settings
-markdown: kramdown
+##Make sure to edit the above fields, especially for disqus.
 
-# setting for analytics helper
-#analytics :
-#  provider : google
-#  google : 
-#      tracking_id : 'UA-64460072-1'
-analytics: 
-    provider: custom
 
-# 多说评论
-comments :
-  provider : duoshuo
-  duoshuo :
-    short_name : elijahdou
-  disqus :
-      short_name : elijahdou
+highlighter: pygments
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
 
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
