@@ -27,12 +27,13 @@ style:            /css/style.css
 blogName:         Elijah  #Elijah Dou'Blog
 blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
-theme:            default  #red,green,blue,pink,drown
+theme:            drown  # default  #red,green,blue,pink,drown
 
 disqus:           elijahdou
 
-copyright:        Copyright © 2011-2012 PIZn All rights reserved.
+copyright:        Copyright © 2015-2027 ElijahDou All rights reserved.
 #test:             ok
+# 配置详见：http://www.zhanxin.info/jekyll/2012-11-14-the-one-theme.html
 
 # setting for analytics helper
 #analytics :
