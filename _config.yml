@@ -27,7 +27,7 @@ style:            /css/style.css
 blogName:         Elijah  #Elijah Dou'Blog
 blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
-theme:            drown  # default  #red,green,blue,pink,drown
+theme:            green  # default red,green,blue,pink,drown
 
 disqus:           elijahdou
 
