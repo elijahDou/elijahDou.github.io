@@ -20,11 +20,11 @@ follow:
 description:      Just another blog theme -- the One
 
 indexContent:     true
-imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
+imageLink:        http://cul.shangdu.com/recommend/2010/20150801/P_6014141_1__1738307735.jpg
 
 
 style:            /css/style.css
-blogName:         theOne 
+blogName:         Elijah Dou'Blog 
 blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
 theme:            default  #red,green,blue,pink,drown
@@ -32,7 +32,7 @@ theme:            default  #red,green,blue,pink,drown
 disqus:           elijahdou
 
 copyright:        Copyright © 2011-2012 PIZn All rights reserved.
-test:             ok
+#test:             ok
 
 # setting for analytics helper
 #analytics :
