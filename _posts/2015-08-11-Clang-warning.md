@@ -6,7 +6,7 @@ category:
 tags: [iOS、warning、Clang、-W*]
 ---
 
-#### 在[这里](http://fuckingclangwarnings.com/)找到了一篇Clang中所有warning的总结，内有解释。
+#### 在这里[Clang Warning](http://fuckingclangwarnings.com/)找到了一篇Clang中所有warning的总结，内有解释。
 
 #### 这样在处理一下警告就有了指导文件了。还可以使用#pragma屏蔽某种类型的警告，如：
 {% highlight objective-c %}
@@ -18,4 +18,4 @@ dispatch_queue_tcurrentQueue =dispatch_get_current_queue();
 #pragma clang diagnostic pop
 {% endhighlight %}
 
-#### 具体的使用方法，可以参考这里[怎么去掉Xcode工程中的某种类型的警告](http://www.cocoachina.com/ios/20141218/10678.html）
+#### 具体的使用方法，可以参考这里[怎么去掉Xcode工程中的某种类型的警告](http://www.cocoachina.com/ios/20141218/10678.html)。
