@@ -25,8 +25,7 @@ tags: [Xcode, warning, setting]
 ***
 ***
  
-#### 正篇，我们开启一下警告，会使我们的项目更清爽，并帮我们排除潜在的bug。
-***
+#### 正篇，我们开启以下警告，会使我们的项目更清爽，并帮我们排除潜在的bug。
 ***
  
 #### ***Check Switch Statements***
@@ -54,6 +53,7 @@ tags: [Xcode, warning, setting]
  
 ##### `当初始化不对等时，会抛出这个警告。`
 {% highlight objective-c %}
+
    int a[2][2] = { 0, 1, 2, 3 }; // wrong way
    
    int b[2][2] = { { 0, 1 }, { 2, 3 } }; // right way
@@ -61,6 +61,7 @@ tags: [Xcode, warning, setting]
  
 ##### solution：这个警告也适用于结构体，如NSRect：
 {% highlight objective-c %}
+
    NSRect warns = { 0.0f, 0.0f, 640.0f, 480.0f };
  
    NSRect doesNotWarn = { {0.0f, 0.0f}, {640.0f, 480.0f} };
@@ -90,6 +91,7 @@ tags: [Xcode, warning, setting]
 ##### solution：举例说明：
  
 {% highlight objective-c %}
+
     struct s { int f, g, h; }; // bad way
     struct s x = { 3, 4 }; 
 

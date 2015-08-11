@@ -1,34 +1,38 @@
-name: Elijah Dou'Blog
-author: Elijah Dou
-baseurl: ""
-description: for iOS techniques and so on.
-github: https://github.com/elijahdou
-twitter: http://www.twitter.com/
-facebook: http://www.facebook.com
-linkedin: http://www.linkedin.com
-email: elijahdou@gmail.com
-location: 42°2'16"N   70°12'47"W
-disqus: elijahdou
+markdown:         rdiscount
+pygments:         true
+paginate:         4
 
-##Make sure to edit the above fields, especially for disqus.
+title:            Elijah Dou'Blog
+url:              http://elijahdou.github.io
+feed:             /atom.xml
+author:
+    name:         Elijah Dou
+    email:        elijahdou@gmail.com
+    description:  "This is a blog maintained by elijah dou for iOS techniques and so on."
+
+about:            "一个睡不醒的宅男，喜爱篮球、动漫、音乐；喜欢DIY但是水平低洼的不行。"
+follow:
+    email:        elijahdou@gmail.com
+    github:       https://github.com/elijahdou
+    twitter:      http://www.twitter.com
+    google:       https://www.google.com/
+    facebook:     http://facebook.com
+description:      Just another blog theme -- the One
+
+indexContent:     true
+imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
 
 
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables"]
+style:            /css/style.css
+blogName:         theOne 
+blogDesc:         This is a blog maintained by elijah dou for iOS techniques and so on.
+favicon:          /favicon.ico
+theme:            default
 
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+#disqus:           elijahdou
+
+copyright:        Copyright © 2011-2012 PIZn All rights reserved.
+test:             ok
 
 # setting for analytics helper
 #analytics :
@@ -45,4 +49,3 @@ comments :
     short_name : elijahdou
   disqus :
       short_name : elijahdou
-      
