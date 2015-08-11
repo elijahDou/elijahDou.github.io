@@ -25,9 +25,9 @@ imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
 
 style:            /css/style.css
 blogName:         theOne 
-blogDesc:         This is a blog maintained by elijah dou for iOS techniques and so on.
+blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
-theme:            default
+theme:            default  #red,green,blue,pink,drown
 
 #disqus:           elijahdou
 
