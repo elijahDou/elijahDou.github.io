@@ -18,4 +18,4 @@ dispatch_queue_tcurrentQueue =dispatch_get_current_queue();
 #pragma clang diagnostic pop
 {% endhighlight %}
 
-#### 具体的使用方法，可以参考这里[怎么去掉Xcode工程中的某种类型的警告](http://www.cocoachina.com/ios/20141218/10678.html)。
+#### 具体的使用方法，可以参考[怎么去掉Xcode工程中的某种类型的警告](http://www.cocoachina.com/ios/20141218/10678.html) 和 [谈谈Objective-C的警告](http://onevcat.com/2013/05/talk-about-warning/)。
