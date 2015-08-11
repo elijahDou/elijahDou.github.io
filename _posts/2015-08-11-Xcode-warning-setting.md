@@ -55,7 +55,6 @@ tags: [Xcode, warning, setting]
 {% highlight objective-c %}
 
    int a[2][2] = { 0, 1, 2, 3 }; // wrong way
-   
    int b[2][2] = { { 0, 1 }, { 2, 3 } }; // right way
 {% endhighlight %}
  
@@ -63,7 +62,6 @@ tags: [Xcode, warning, setting]
 {% highlight objective-c %}
 
    NSRect warns = { 0.0f, 0.0f, 640.0f, 480.0f };
- 
    NSRect doesNotWarn = { {0.0f, 0.0f}, {640.0f, 480.0f} };
 {% endhighlight %}
  
@@ -94,7 +92,6 @@ tags: [Xcode, warning, setting]
 
     struct s { int f, g, h; }; // bad way
     struct s x = { 3, 4 }; 
-
     struct s { int f, g, h; };  // right way
     struct s x = { .f = 3, .g = 4 }; // or
     struct s x = {3, 4, 5};

@@ -8,7 +8,7 @@ feed:             /atom.xml
 author:
     name:         Elijah Dou
     email:        elijahdou@gmail.com
-    description:  "This is a blog maintained by elijah dou for iOS techniques and so on."
+    description:  "for iOS techniques and so on"
 
 about:            "一个睡不醒的宅男，喜爱篮球、动漫、音乐；喜欢DIY但是水平低洼的不行。"
 follow:
@@ -29,7 +29,7 @@ blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
 theme:            default  #red,green,blue,pink,drown
 
-#disqus:           elijahdou
+disqus:           elijahdou
 
 copyright:        Copyright © 2011-2012 PIZn All rights reserved.
 test:             ok
@@ -43,9 +43,9 @@ analytics:
     provider: custom
 
 # 多说评论
-comments :
-  provider : duoshuo
-  duoshuo :
-    short_name : elijahdou
-  disqus :
-      short_name : elijahdou
+#comments :
+#  provider : duoshuo
+#  duoshuo :
+#    short_name : elijahdou
+#  disqus :
+#      short_name : elijahdou
