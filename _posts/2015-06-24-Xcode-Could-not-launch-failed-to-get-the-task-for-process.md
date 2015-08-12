@@ -7,6 +7,8 @@ analytics : true
 tags: [Xcode, launch failed]
 ---
 
+#### 转载请注明出处： http://elijahdou.github.io/
+
 ### 　　在测试项目代码时，选择debug版本编译通过，测试正常；在release版本下，可以编译成功，但是APP一在真机上运行就会报如题所示的错误，程序闪退。
 
 

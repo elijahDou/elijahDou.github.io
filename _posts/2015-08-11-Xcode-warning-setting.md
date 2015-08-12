@@ -8,7 +8,7 @@ tags: [Xcode, warning, setting]
 
 ### Xcode中的warning警告设置(推荐)
 
-#### 转载请注明出处！！！
+#### 转载请注明出处： http://elijahdou.github.io/
 
 #### 作为一名有节操的程序猿，应该有严谨的coding态度。Xcode的warning设置，能给我们很好的帮助，强制约束我们严谨coding：0 warning 0 error。下面直接上干货。
 

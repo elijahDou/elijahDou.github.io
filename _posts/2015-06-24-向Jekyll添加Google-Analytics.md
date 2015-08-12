@@ -7,6 +7,8 @@ analytics : true
 tags: [Jekyll, google analytics]
 ---
 
+#### 转载请注明出处： http://elijahdou.github.io/
+
 ## 　　由于要用Jekyll + github page搭建blog，想要添加analytics的功能，便于管理。便从网上找了方法，记录总结下来，与大家分享。
 
 
