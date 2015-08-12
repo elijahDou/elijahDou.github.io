@@ -17,7 +17,7 @@ follow:
     twitter:      http://www.twitter.com
     google:       https://www.google.com/
     facebook:     http://facebook.com
-description:      Just another blog theme -- the One
+description:      for iOS techniques and so on
 
 indexContent:     true
 imageLink:        http://cul.shangdu.com/recommend/2010/20150801/P_6014141_1__1738307735.jpg
@@ -27,9 +27,9 @@ style:            /css/style.css
 blogName:         Elijah  #Elijah Dou'Blog
 blogDesc:         for iOS techniques and so on
 favicon:          /favicon.ico
-theme:            blue  # default red,green,blue,pink,drown
+theme:            green  # default red,green,blue,pink,drown
 
-disqus:           elijahdou
+disqus:           Elijah Dou
 
 copyright:        Copyright © 2015-2027 ElijahDou All rights reserved.
 #test:             ok
