@@ -229,4 +229,4 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 > [发布自己的pods到CocoaPods trunk](http://www.tuicool.com/articles/6FF7fi)
 > 
 > [CocoaPods详解之----制作篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
-
+> [CocoaPods 手把手五分钟教你制作自己的podspec文件](http://iiiyu.com/2013/12/19/learning-ios-notes-thirty-one/)
