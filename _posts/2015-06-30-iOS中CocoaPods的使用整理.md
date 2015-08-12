@@ -222,6 +222,7 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 
 
 > 参考资料：
+> 
 > [cocopod使用篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
 > 
 > [CocoaPods](http://nshipster.cn/cocoapods/)
