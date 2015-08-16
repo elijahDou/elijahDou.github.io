@@ -8,7 +8,7 @@ feed:             /atom.xml
 author:
     name:         Elijah Dou
     email:        elijahdou@gmail.com
-    description:  "for iOS techniques and so on"
+    description:  "for iOS techniques etc"
 
 about:            "一个睡不醒的宅男，喜爱篮球、动漫、音乐；喜欢DIY但是水平低洼的不行。"
 follow:
@@ -17,7 +17,7 @@ follow:
     twitter:      http://www.twitter.com
     google:       https://www.google.com/
     facebook:     http://facebook.com
-description:      for iOS techniques and so on
+description:      for iOS techniques etc
 
 indexContent:     true
 imageLink:        http://cul.shangdu.com/recommend/2010/20150801/P_6014141_1__1738307735.jpg
@@ -25,7 +25,7 @@ imageLink:        http://cul.shangdu.com/recommend/2010/20150801/P_6014141_1__17
 
 style:            /css/style.css
 blogName:         Elijah  #Elijah Dou'Blog
-blogDesc:         for iOS techniques and so on
+blogDesc:         for iOS techniques etc
 favicon:          /favicon.ico
 theme:            green  # default red,green,blue,pink,drown
 
