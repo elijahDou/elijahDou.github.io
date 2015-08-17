@@ -2,7 +2,7 @@ markdown:         rdiscount
 pygments:         true
 paginate:         5
 
-title:            Elijah   #Elijah Dou'Blog
+title:            Elijah    # Elijah Dou'Blog
 url:              http://elijahdou.github.io
 feed:             /atom.xml
 author:
@@ -24,7 +24,7 @@ imageLink:        http://cul.shangdu.com/recommend/2010/20150801/P_6014141_1__17
 
 
 style:            /css/style.css
-blogName:         Elijah  #Elijah Dou'Blog
+blogName:         Elijah    # Elijah Dou'Blog
 blogDesc:         for iOS techniques etc
 favicon:          /favicon.ico
 theme:            green  # default red,green,blue,pink,drown
