@@ -1,6 +1,6 @@
 markdown:         rdiscount
 pygments:         true
-paginate:         5
+paginate:         4
 
 title:            Elijah   #Elijah Dou'Blog
 url:              http://elijahdou.github.io
