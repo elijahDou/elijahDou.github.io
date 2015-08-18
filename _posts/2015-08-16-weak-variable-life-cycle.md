@@ -117,7 +117,9 @@ struct weak_entry_t {
 #### 其中referent是被引用的对象，即示例代码中的obj对象。下面的`union`即存储了所有指向该对象的弱引用。由注释可以看到，当`out_of_line`等于0时，hash表被一个数组所代替。另外，所有的弱引用对象的地址都是存储在`weak_referrer_t`指针的地址中。其定义如下：
 {% highlight objective-c %}
 typedef objc_object ** weak_referrer_t;
-SideTable是一个用C++实现的类，它的具体定义在NSObject.mm中，我们来看看它的一些成员变量的定义：
+{% endhighlight %}
+
+#### SideTable是一个用C++实现的类，它的具体定义在NSObject.mm中，我们来看看它的一些成员变量的定义：
 {% highlight objective-c %}
 class SideTable {
 private:
