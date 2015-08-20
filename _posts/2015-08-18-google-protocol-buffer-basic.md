@@ -36,6 +36,8 @@ tags: [protobuf，protocol buffers]
 7. `./build.sh`
 8. `Add /src/runtime/ProtocolBuffers.xcodeproj in your project.`
 
+******
+
 ### 使用-编写`.proto`源文件
 
 #### 使用pb的第一步就是编写`.proto`源文件。对应OC中的类，`protobuf`称为`message`消息。举例代码入下：
