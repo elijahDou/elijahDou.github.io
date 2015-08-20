@@ -27,10 +27,13 @@ tags: [protobuf，protocol buffers]
 ### 安装
 
 #### Google的官方版本，只提供了JAVA C++ C 和 Python版本的pb，但是在github的开源项目上有OC和最新的SWIFT语言的版本。git还在维护的版本有[qzix/protobuf-objc](https://github.com/qzix/protobuf-objc) 和 [alexeyxo/protobuf-objc](https://github.com/alexeyxo/protobuf-objc)，其中后者还[支持swift](http://protobuf.io/#swift)，推荐使用后者，同时安装步骤也在该页。借助homebrew安装更方便，如果已安转homebrew请跳过第一步，摘录如下：
+
+操作前请先获取系统权限，sudo一下
+
 1. `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 2. `brew install automake`
 3. `brew install libtool`
-4. `brew instal protobuf`
+4. `brew install protobuf`
 5. `ln -s /usr/local/Cellar/protobuf/2.6.0/bin/protoc /usr/local/bin (optional)`
 6. `git clone git@github.com:alexeyxo/protobuf-objc.git`
 7. `./build.sh`
