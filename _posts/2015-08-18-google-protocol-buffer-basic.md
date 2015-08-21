@@ -72,7 +72,7 @@ message msgName(消息名称) {
 
 #### ***关于dataType(数据类型)***
 
-##### 这个很简单，数据类型名字也很好记，有表格如下：
+#### 这个很简单，数据类型名字也很好记，有表格如下：
 <table style="width: 760px; height: 323px;" border="0" align="center">
 <tbody>
 <tr>
@@ -207,7 +207,7 @@ message LogonRespMessage {
 
 #### 将上一步生成的目标文件引入到项目中，就可以当做普通的类来使用了。
 
-#### tips：原来oc版本的pb不支持aARC，需要禁用，所以推荐用cocopods引入。现在扔在维护的版本不知道是不是有ARC的版本，有待验证。
+#### tips：不同的oc版本的pb的开源项目略有不同，不过大同小异，如类名的命名方式等，一个较大的区别是有的支持ARC，有的不支持ARC 需要禁用，所以推荐用cocopods引入。现在扔在维护的版本不知道是不是有ARC的版本，有待验证。
 
 #### 实际使用举例，以前面的Person.proto为例，*常规*的使用步骤如下（当然要导入必要的头文件）：
 {% highlight objective-c %}
@@ -227,7 +227,7 @@ message LogonRespMessage {
 
 - (NSData *)makePersonDataWithAge:(int32_t)age names:(NSArray *)names email:(NSString *)email
 {
-    Person_Builder *builder = [[Person_Builder alloc] init];
+    PersonBuilder *builder = [[PersonBuilder alloc] init]; // 有的版本的是这样的Person_Builder,不过大同小异
     builder.age = age;
     builder.email = email;
     [builder setNamesArray:names];
