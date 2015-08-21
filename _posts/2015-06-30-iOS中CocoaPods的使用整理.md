@@ -223,8 +223,6 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 
 > 参考资料：
 > 
-> [cocopod使用篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
-> 
 > [CocoaPods](http://nshipster.cn/cocoapods/)
 > 
 > [发布自己的pods到CocoaPods trunk](http://www.tuicool.com/articles/6FF7fi)
@@ -232,3 +230,18 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 > [CocoaPods详解之----制作篇](http://blog.csdn.net/wzzvictory/article/details/20067595)
 > 
 > [CocoaPods 手把手五分钟教你制作自己的podspec文件](http://iiiyu.com/2013/12/19/learning-ios-notes-thirty-one/)
+>
+> [项目管理：CocoaPods建立私有仓库](http://www.cocoachina.com/ios/20150508/11785.html)
+>
+> [使用CocoaPods开发并打包静态库](http://www.cocoachina.com/ios/20141124/10297.html)
+>
+> [在Swift中使用CocoaPods](http://www.cocoachina.com/swift/20140627/8962.html)
+>
+> [使用Cocoapods创建私有podspec](http://www.cocoachina.com/ios/20150228/11206.html)
+
+
+
+
+
+
+
