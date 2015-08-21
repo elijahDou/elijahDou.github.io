@@ -43,7 +43,7 @@ tags: [protobuf，protocol buffers]
 
 ### 使用-编写`.proto`源文件
 
-#### 使用pb的第一步就是编写`.proto`源文件。对应OC中的类，`protobuf`称为`message`消息。举例代码入下：
+#### 使用pb的第一步就是编写`.proto`源文件，选用自己顺手的任一款编辑器即可。对应OC中的类，`protobuf`称为`message`消息，你会发现其语法结构与常见语言类似，所以简单易学。举例代码入下：
 {% highlight objective-c %}
 message Person {
     required int32 age = 1;
@@ -174,7 +174,7 @@ message msgName(消息名称) {
 </tbody>
 </table>
 
-#### pb还支持枚举类型的数据定义，举例如下：
+#### oc语言的数据类型参考C++ 版本即可，此外pb还支持枚举类型的数据定义，举例如下：
 {% highlight objective-c %}
 enum UserStatus {
      OFFLINE = 0;
@@ -200,6 +200,8 @@ message LogonRespMessage {
 #### `protoc .proto源文件路径 --objc_out="输出文件路径"`
 
 #### `protoc .proto源文件路径 --swift_out="输出文件路径"`
+
+*****
 
 ### 使用-项目中引用
 
