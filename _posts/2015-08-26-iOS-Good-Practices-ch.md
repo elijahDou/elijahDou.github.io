@@ -47,7 +47,7 @@ iOS开发要上手比较困难，因为无论是 Objective-C 还是 Swift 在别
 15. [More Ideas(计划)](#计划)
 16. [译者](#译者)
 
-## <span id="#开始吧!">开始吧！</span>
+## <span id="开始吧!">开始吧！</span>
 
 
 ### Xcode
