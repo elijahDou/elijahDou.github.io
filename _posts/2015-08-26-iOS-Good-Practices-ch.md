@@ -47,6 +47,8 @@ iOS开发要上手比较困难，因为无论是 Objective-C 还是 Swift 在别
 15. [More Ideas(计划)](#计划)
 16. [译者](#译者)
 
+***
+
 <h2 id="开始吧!">开始吧！</h2>
 
 
@@ -153,6 +155,8 @@ App发布的时候把 Release 代码从原有的分支上隔离出来，并且�
 
 `git flow release fininsh <version>`
 
+****
+
 <h2 id="常用库">常用库</h2>
 
 一般来说，在工程里添加外部依赖要谨慎。当然，眼下某个第三方库能漂亮地解决你的问题，但或许不久之后就陷入了维护的泥淖，最后随着下一版 OS 的发布全线崩溃。另一种情况是，原先只能通过引用外部库来实现的 feature，突然官方 API 也支持了。在设计良好的项目里，把第三方库替换为官方的实现花不了多少功夫，但在将来会大有裨益。永远要优先考虑用苹果官方的框架（也是最好的框架）来解决问题！
@@ -169,6 +173,8 @@ App发布的时候把 Release 代码从原有的分支上隔离出来，并且�
 如果你更喜欢用代码写界面，你会用过 Apple 难用的 `NSLayoutConstraint`的工厂方法或者 [`Visual Format Language`][2]。前者很啰嗦，后者基于字符串不利于编译检查。
 
 [masonry][3] 通过他自己的 DSL 来创建、更新和替换约束，利用语言丰富的操作符重载特性较优雅地实现了 AL。Swift 中一个类似的库是 [Cartography][4]。如果更加保守的话， [FLKAutoLayout][5] 是一个好的选择，它为原生API添加了一层简洁而不奇异的包装。
+
+***
 
 <h2 id="架构">架构</h2>
 
@@ -238,6 +244,8 @@ FooViewController *fooViewController = [[FooViewController alloc] initWithViewMo
 ```
 尽量避免在 view controller 中引入大量的本可以安全地放在其他地方实现的业务逻辑，这会让 view Controller 变得十分臃肿。Soroush Khanlou 有一篇 [很好的博客][13] 介绍了如何实现这种机制,而类似 [MVVM][7] 这样的程序架构将 view controller 当 views 对待，因此大大地减少了 view controller 的复杂度。
 
+***
+
 <h2 id="网络请求">网络请求</h2>
 
 ### 传统方法：使用自定义回调 block
@@ -282,6 +290,8 @@ typedef void (^FetchGigsBlock)(NSArray *gigs, NSError *error);
 
 在这里我们可以把 gig(演出) 信号与其他信号结合，因此可以在展示 gig 之前做一些修改、过滤等处理。
 
+***
+
 <h2 id="存储">存储</h2>
 
 作为一个可以"在地面上移动"的移动应用，通常有某种存储模型把数据保存在某个地方，如硬盘上、本地数据库中或者远程的服务器上。在把模型对象的任意活动抽象出来的方面，Store 层也非常有用。
@@ -310,6 +320,8 @@ Objective-C + RAC 2:
 
 如果你不想使用信号、"期货"或类似的机制来代表你未来的数据，你也可以使用常规的 block 回调。但要记住，block 块嵌套地进行链式调用，如在某个网络请求依赖于另一个的结果的情况下，就会迅速变得非常笨重 --- 这种情况通常被称为“**回调深渊**"。
 
+***
+
 <h2 id="资源">资源</h2>
 
 Asset catalogs是管理你所有项目可视化资源的最好方式，他们可以同时管理通用的以及设备相关的(iPhoen4-inch,iPhone Retina,iPad 等)资源，并且会通过他们的名字自动分组。告诉你的设计师如何添加它们，(Xcode有内建的 Git 客户端)可以节省很多时间，否则你会很多时间从邮件或者其他渠道把它们复制到代码库中。同时，这样也可以让设计师即刻看到自己的改动，可以根据需求进行迭代。
@@ -333,6 +345,8 @@ IconCheckmarkhighlighted@2x~iPad.png // iPad, Retina
 ### Using Vector Images 使用矢量图
 
 你可以把设计师设计的[原始图矢量图(PDFs)][16]放进 Asset catalog,让 Xcode 来自动生成位图。这样能减少工程的复杂度(减少文件的个数)。
+
+***
 
 <h2 id="编码风格">编码风格</h2>
 
@@ -477,6 +491,8 @@ Futurice（作者所在的公司）并没有公司范围的编码风格指南。
 * [Sam Soffers][30]
 * [Luke Redpath][31]
 
+****
+
 <h2 id="安全">安全</h2>
 
 即使在这样一个时代，我们信任我们的便携设备，让其携带自己最私有的数据，但 app 的安全性仍然是一个经常被忽视的主题。尝试对数据安全性的设定找到一个良好的权衡，以下有一些简单的经久耐用的法则。另外，Apple 的 [iOS安全指南][35]是一个很好的入门教程。
@@ -500,6 +516,9 @@ Futurice（作者所在的公司）并没有公司范围的编码风格指南。
 当使用 `UITextField`做密码输入时，记住设置它们的 `secureTextEntry` 属性为 `true`,以免明文显示密码。同时也应该关闭其"输入自动校正"的功能，并在任何合适的时刻清空密码，比如当 app 退到后台时。
 
 当 app 退到后台时，清空剪切板可以避免密码或其他敏感数据被泄露。由于 iOS 可能需要你 app 的屏幕截图，以显示在 app 切换器中，所以在 `applicationDidEnterBackground` 方法返回前，应该确保 UI 上显示的所有敏感数据被清空。
+
+
+***
 
 <h2 id="诊断">诊断</h2>
 
@@ -544,6 +563,8 @@ Xcode 自带一套评测工具 "Instruments"。它包含了众多的评测工具
 众所周知的是 Instruments 有一个 Automation 工具可以把 UI 交互录制为 JavaScript 文件并重放。[UI Auto Monkey][43]是一个脚本，它可以借助 Automation 在你的 App 上随机点击、清扫、旋转，这对压力测试/浸泡测试很有帮助。
 
 要格外注意的是，你在哪里以何种方式创建了巨耗资源的类。举个栗子，`NSDateFormatter`创建起来非常耗资源，当快速而连续这么做时，比如在 `tableView:cellForRowAtIndePath:`方法中，会真正减慢 App 的响应速度。你应该创建一个它的 static 实例，并在需要格式化日期时直接使用该实例。
+
+*****
 
 <h2 id="统计分析">统计分析</h2>
 
@@ -590,6 +611,8 @@ Objective-C :
 * [Splunk MINTexpress][49]
 
  设置好这些之后，每次发布都要确保保存了 *Xcode archive(.xcarchive)*.Archive 里包含编译出的二进制文件以及 Debug symbol（ dSYM ），你需要这些数据来解析这个版本 App 的崩溃报告。
+
+****
  
 <h2 id="编译构建">编译构建</h2>
 
@@ -631,6 +654,8 @@ MyApp [AppStore]
 ```
 大部分环境下，语言是不需要标明的，因为 App 有可能通过 Xcode 之外的途径安装，比如 TestFlight，这样启动参数就会被忽略，这种情况下，只能手动设置设备语言来测试本地化。
 
+****
+
 <h2 id="部署">部署</h2>
 
 将 app 安装到 iOS 设备上并不简单。那么我们在这里会介绍几个核心的概念，理解了这些概念会对你部署 app 有很大帮助。
@@ -664,6 +689,8 @@ MyApp [AppStore]
 
 上传包之后，保持耐心，可能一个小时后这个版本的 App 才会出现在 Builds 一栏，当它出现后，你可以把它与 App 的版本信息关联起来，然后提交审核。
 
+***
+
 <h2 id="内购">内购</h2>
 
 验证 App 内购的收据时，请记得进行以下检查：
@@ -678,9 +705,13 @@ MyApp [AppStore]
 
 关于这个问题，更多的信息请参考[Futurice blog:Validating in-app purchases in your iOS app][55]
 
+****
+
 <h2 id="授权">授权</h2>
 
 [Futurice][56] 署名 - 相同方式共享 4.0 国际许可协议（CC BY 4.0）
+
+***
 
 <h2 id="计划">计划</h2>
 
@@ -688,6 +719,8 @@ MyApp [AppStore]
 * 添加如何使用[Jenkins][76]自动化打包分发
 * 添加一个跟测试相关的小节
 * 添加注意事项
+
+***
 
 <h2 id="译者">译者</h2>
 
