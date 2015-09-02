@@ -2,7 +2,7 @@
 layout: post
 title: "怎样减小iOS APP 或者 静态库的体积（精）"
 description: ""
-category: ios开发
+category: ios
 tags: [iOS，APP，size]
 --- 
 #### 转载请注明粗处：http://elijahdou.github.io/
