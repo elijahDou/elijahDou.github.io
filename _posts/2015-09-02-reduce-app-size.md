@@ -35,7 +35,7 @@ tags: [iOS，APP，size]
 * 用代码绘制简单的纯色图片 [用Sketch和PaintCode快速得到绘制代码](http://www.jianshu.com/p/d01110c80495)
 
 * 如果不需要使用透明，可以用jpeg代替PNG。jpeg减少了些效率但更加小。需权衡性能，大小。
-* 使用PS的“Save For Web”功能，可以有效的减小JPEG和PNG图片的尺寸。 默认情况下，在build时，PNG图像就被[pngcrush](https://developer.apple.com/library/ios/qa/qa1681/_index.html)压缩。
+* 对32位的图片，尽肯能的使用高压缩率，使用PS的“Save For Web”功能，可以有效的减小JPEG和PNG图片的尺寸。 默认情况下，在build时，PNG图像就被[pngcrush](https://developer.apple.com/library/ios/qa/qa1681/_index.html)压缩。
 
 
 #### 音频
@@ -65,6 +65,10 @@ tags: [iOS，APP，size]
     1，如果想自己的app在各个机器都能够最高效率的运行，则需要将Build Active Architecture Only改为NO,Valid architectures选择对应的指令集：armv7 armv7s arm64。这个会为各个指令集编译对应的代码，因此最后的 ipa体积基本翻了3倍,Release版本必须NO。
 
     2，如果想让app体积保持最小，则现阶段应该选择Valid architectures为armv7,这样Build Active Architecture Only选YES或NO就无所谓了
+
+#### 其他
+
+* 将应用的中一些数据，如长字符串、表格等移到外部文件中，不要放在代码里面，这样能减小一些体积，因为外部文件的压缩率要比应用中的数据压缩率高。
 	   
 > 参考资料
 >
