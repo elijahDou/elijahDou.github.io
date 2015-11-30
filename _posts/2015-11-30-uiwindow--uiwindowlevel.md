@@ -16,7 +16,7 @@ tags: [UIWindow,UIWindowLevel]
 #### 二、通常我们可以采取两种方法将view添加到UIWindow中：
 - addSubview
     
-直接将view通过addSubview方式添加到window中，程序负责维护view的生命周期以及刷新，但是并不会为去理会view对应的ViewController，因此采用这种方法将view添加到window以后，我们还要保持view对应的ViewController的有效性，不能过早释放。
+直接将view通过addSubview方式添加到window中，程序负责维护view的生命周期以及刷新，但是并不会为view添加对应的ViewController，因此采用这种方法将view添加到window以后，我们还要保持view对应的ViewController的有效性，不能过早释放。
 　　
 - rootViewController
     
@@ -76,3 +76,10 @@ typedef CGFloat UIWindowLevel;
     return YES;
 }
 {% endhighlight %}
+
+#### 运行结果如下图：
+![](http://pic002.cnblogs.com/images/2012/302680/2012032722535669.jpg)
+
+#### 我们可以注意到两点：
+- 我们生成的normalWindow虽然是在第一个默认的window之后调用makeKeyAndVisible，但是仍然没有显示出来。这说明当Level层级相同的时候，只有第一个设置为KeyWindow的显示出来，后面同级的再设置KeyWindow也不会显示。
+- statusLevelWindow在alertLevelWindow之后调用makeKeyAndVisible，淡仍然只是显示在alertLevelWindow的下方。这说明UIWindow在显示的时候是不管KeyWindow是谁，都是Level优先的，即Level最高的始终显示在最前面。
