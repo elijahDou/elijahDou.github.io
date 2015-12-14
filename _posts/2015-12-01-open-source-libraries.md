@@ -69,3 +69,6 @@ SBJson就千万别再用了，性能差，维护的也不好。
 - MAZeroingWeakRef：非常棒的智能指针工具，可以自动销毁对象分配的内存，防止内存泄漏，方便内存管理。https://github.com/mikeash/MAZeroingWeakRef
 - TMCache： 一个不错的基于key/value的数据缓存库，支持内存和持久缓存，基于GCD支持多线程操作，挺好用。 https://github.com/tumblr/TMCache
 
+> 扩展
+
+> [94个iOS开发资源推荐，帮你加速应用开发](http://www.cocoachina.com/ios/20151210/14635.html)
