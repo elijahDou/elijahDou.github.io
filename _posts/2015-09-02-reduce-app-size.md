@@ -71,8 +71,12 @@ tags: [iOS，APP，size]
 * 将应用的中一些数据，如长字符串、表格等移到外部文件中，不要放在代码里面，这样能减小一些体积，因为外部文件的压缩率要比应用中的数据压缩率高。
 	   
 > 参考资料
->
+
 > [Reducing the size of my App](https://developer.apple.com/library/ios/qa/qa1795/_index.html)
+
+> [iOS微信安装包瘦身](http://www.cocoachina.com/ios/20151211/14562.html)
+
+> [iOS可执行文件瘦身方法](http://blog.cnbang.net/tech/2544/)
 
 
 
