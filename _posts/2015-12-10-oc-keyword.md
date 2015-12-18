@@ -84,6 +84,8 @@ if([value isKindOfClass:[NSNumber class]]){
 
 > 扩展阅读
  
+> [关于Objective-C warning的笔记](https://gist.github.com/croath/5027669)
+ 
 > [那些被遗漏的Objective-C保留字](http://blog.devtang.com/blog/2013/04/29/the-missing-objc-keywords/)
 
 > [The Complete List of Objective-C 2.0 @ Compiler Directives](http://www.learn-cocos2d.com/2011/10/complete-list-objectivec-20-compiler-directives)
