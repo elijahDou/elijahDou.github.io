@@ -16,7 +16,11 @@ tags: [runtime, OC, Objective-C]
 
 #### 一 category是Objective-C 2.0之后添加的语言特性，category的主要作用：
 1. 为已经存在的类添加方法
-2. 把类的实现分开在几个不同的category文件里面，好处：a)可以减少单个文件的体积 b)可以把不同的功能组织到不同的category里 c)可以由多个开发者共同完成一个类 d)可以按需加载想要的category 等等
+2. 把类的实现分开在几个不同的category文件里面，好处：
+    - a)可以减少单个文件的体积 
+    - b)可以把不同的功能组织到不同的category里 
+    - c)可以由多个开发者共同完成一个类 
+    - d)可以按需加载想要的category 等等
 3. 声明私有方法
 4. 模拟多继承
 5. 把framework的私有方法公开
