@@ -27,11 +27,11 @@ tags: [runtime, OC, Objective-C]
 
 
 #### 二 与extension对比
-- extension 在编译器决议，一般用来隐藏类的私有信息，你必须有一个类的源码才能为一个类添加extension，所以你无法为系统的类 比如NSString添加extension。而category在运行期决议，可以向任何类添加方法。
-- extension可以添加实例变量，而category是无法添加实例变量的（因为在运行期，对象的内存布局已经确定，如果添加实例变量就会破坏类的内部布局，这对编译型语言来说是灾难性的）。
+- extension 在编译期决议，一般用来隐藏类的私有信息，你必须有一个类的源码才能为一个类添加extension，所以你无法为系统的类 比如NSString添加extension。而category在运行期决议，可以向任何类添加方法。
+- extension可以添加实例变量，而category是无法添加实例变量的（因为在运行期，对象的内存布局已经确定，如果添加实例变量就会破坏类的内部布局，这对编译型语言来说是灾难性的。但是可以用关联属性来模拟添加属性~~~）。
 
 #### 三 被category覆盖掉的 类中的original method
-- category的方法没有“完全替换掉”原来类已经有的方法，而是将它放到了category的方法的后面。selector与方法的实现IMP是一个map结构的，map中的key就是selector，value就是IMP，可以理解有多个同名方法的map，在消息派发时，一旦匹配到就不在向后查找，所以从表现上来说，category中方法好像覆盖了类中的original method。 正因为这样，我们仍然可以调用到类中的original method，只要顺着方法列表找到最后一个对应名字的方法，就可以调用原来类的方法（这是根据blog中的Code封装的一个方法）：
+- category的方法没有“完全替换掉”原来类已经有的方法，而是将它放到了category的方法的后面。selector与方法的实现IMP是一个map结构的，map中的key就是selector，value就是IMP，可以理解为一个selector对应多个IMP，这多个IMP在一个链表中，在消息派发时，一旦匹配到IMP就不在向后查找，所以从表现上来说，category中方法好像覆盖了类中的original method。 正因为这样，我们仍然可以调用到类中的original method，只要顺着方法列表找到最后一个对应名字的方法，就可以调用原来类的方法（这是根据blog中的Code封装的一个方法）：
 
 {% highlight objective-c %}
 - (IMP)ed_getOriginalMethodInClass:(Class)targetClass withSelector:(SEL)aSeclector
@@ -63,7 +63,7 @@ tags: [runtime, OC, Objective-C]
 
 #### 四 category和+load方法
 - 类中和category中均可以实现+load方法
-- 执行顺序： 先 类中，后 category中，多个category都实现了同名方法，那么会按照编译顺序执行。
+- 执行顺序： 先 类中，后 category中，多个category都实现了同名方法，那么会按照***编译顺序***执行。
 
 小技巧：在Xcode中点击`Edit Scheme`，添加如下两个环境变量（可以在执行load方法以及加载category的时候打印log信息，更多的环境变量选项可参见objc-private.h）:
 ![设置环境变量](http://tech.meituan.com/img/diveintocategory/environment_vars.png)
@@ -127,7 +127,7 @@ tags: [runtime, OC, Objective-C]
 原文给出的可能原因：
 
 - 散列表是没有顺序的，Objective-C的方法列表是一个list，是有顺序的；Objective-C在查找方法的时候会顺着list依次寻找，并且category的方法在原始方法list的前面，需要先被找到，如果直接用hash存方法，方法的顺序就没法保证。
-- list的方法还保存了除了selector和imp之外其他很多属性
+- list的方法还保存了除了selector和IMP之外其他很多属性
 - 散列表是有空槽的，会浪费空间
 
 
