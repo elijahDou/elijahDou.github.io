@@ -238,6 +238,9 @@ CocoaPods强制要求所有的Pods依赖库都必须有license文件，否则验
 > [在Swift中使用CocoaPods](http://www.cocoachina.com/swift/20140627/8962.html)
 >
 > [使用Cocoapods创建私有podspec](http://www.cocoachina.com/ios/20150228/11206.html)
+>
+> [为自己的库添加CocoaPods支持](http://www.saitjr.com/ios/ios-trunk-cocoapods.html)
+
 
 
 
