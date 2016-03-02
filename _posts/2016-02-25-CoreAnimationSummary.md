@@ -55,6 +55,7 @@ tags: [animation，frame，autolayout，masonry]
             - (void)animationDidStart:(CAAnimation *)anim;
             - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
             {% endhighlight %}
+
     * `removedOnCompletion`：是否自动在动画结束时将动画从渲染树上移除，默认是`YES`
 - `CAAnimationGroup`：动画组，将一些列动画组合到一起。
     * `animations`：`CAAnimation`数组类型，成员为其他类型的动画
