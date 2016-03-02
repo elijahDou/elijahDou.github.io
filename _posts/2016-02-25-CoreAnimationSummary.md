@@ -50,14 +50,12 @@ tags: [animation，frame，autolayout，masonry]
         - kCAMediaTimingFunctionEaseOut：先快后慢（快进慢出）
         - kCAMediaTimingFunctionEaseInEaseOut：先慢后快再慢
         - kCAMediaTimingFunctionDefault：默认值，中间比较快
-        * `delegate`：设置动画委托，有两个委托方法：
-        
+    * `delegate`：设置动画委托，有两个委托方法：
             {% highlight objective-c %}
             - (void)animationDidStart:(CAAnimation *)anim;
             - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
             {% endhighlight %}
-            
-        * `removedOnCompletion`：是否自动在动画结束时将动画从渲染树上移除，默认是`YES`
+    * `removedOnCompletion`：是否自动在动画结束时将动画从渲染树上移除，默认是`YES`
 - `CAAnimationGroup`：动画组，将一些列动画组合到一起。
     * `animations`：`CAAnimation`数组类型，成员为其他类型的动画
 - `CAPropertyAnimation`：属性动画，继承于`CAnimation`
@@ -137,7 +135,6 @@ anima.duration = 2.0f;
         //TODO:
     }
 }
-
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     // 正确的打开方式
@@ -146,9 +143,6 @@ anima.duration = 2.0f;
     }
 }
 {% endhighlight %}
-
-
-
 
 
 
