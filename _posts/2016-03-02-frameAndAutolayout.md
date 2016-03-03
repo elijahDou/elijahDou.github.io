@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "一个关于frame和Autolayout（Masonry）的问题"
+title: "frame与Autolayout（Masonry）的几点结论"
 description: ""
 category: UI
 tags: [frame，autolayout，masonry]
@@ -17,3 +17,4 @@ tags: [frame，autolayout，masonry]
 {% endhighlight %}
 
 - `Autolayout`和`frame`能否混用，答案是一定程度上可以，牢记上面一条两者之间的相互影响关系。在约束布局的UI视图中，混用`frame`布局，一定要先调用上面的这段代码，这样就能得到`superView`和相关`view`准确的`frame`。但是修改`frame`不会修改约束使得混用的情况的变得复杂很容易出错，所以还是大众化的建议：最好不要混用。
+- 在一些业务处理时，在约束布局后，需要获取`view`的宽高尺寸等信息，不用说，先调用上面的代码。这也可以说是一种混用的情况吧。
