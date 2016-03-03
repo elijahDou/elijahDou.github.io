@@ -6,11 +6,11 @@ category: UI
 tags: [frame，autolayout，masonry]
 ---
 
-#### 在做开发的时候，UI适配方面老代码都是使用`frame`做UI布局，新的代码却是用的`Autolayout`，我们主要是用的三方库`masonry`写约束完成布局。在这个过程中。我一直有个错误的认识，`Autolayout`和`frame`相互独立互不影响。网上看到很多blog也这么认为。让我在这个坑里一直徘徊。这么认为多是由于设置完约束之后，打印`frame`的值为`CGRectZero`或者一个错误值造成的。但是在我调试一段代码时，情况却超出了我原来（错误）的认识。为什么打印的`frame`完全正确？
+#### 在做开发的时候，UI适配方面老代码都是使用`frame`做UI布局，新的代码却是用的`Autolayout`，我们主要是用的三方库`masonry`写约束完成布局。在这个过程中。我一直有个错误的认识，`Autolayout`不会改变`frame`。网上看到很多blog也这么认为。这么认为多是由于设置完约束之后，打印`frame`的值为`CGRectZero`或者一个错误值造成的。但是在我调试一段代码时，情况却超出了我原来（错误）的认识。为什么打印的`frame`完全正确？
 
-#### 答案是设置约束后`frame`的跟新并不是实时的，需要等到根据约束计算好`view`的位置和约束之后才回刷新`frame`。 `Autolayout`的本质是通过一套约束规则去确定一个`view`在`superview`中的位置和尺寸。既是位置和尺寸那不就是`frame`嘛。所以我通过实验得出了以下几个结论：
+#### 答案是设置约束后`frame`的更新并不是实时的，需要等到根据约束计算好`view`的位置和尺寸之后才会刷新`frame`。 `Autolayout`的本质是通过一套约束规则去确定一个`view`在`superview`中的位置和尺寸。既是位置和尺寸那不就是`frame`嘛。所以我通过文档和实验得出了以下几个结论：
 - `Autolayout`是一套关于`view`位置和尺寸的约束规则
-- `Autolayout`改变可以改变`view`的`frame`，但是`frame`的改变并不能改变`Autolayout`的约束规则（当`translatesAutoresizingMaskIntoConstraints = YES`时，会根据`autoresizingMask`的相应设置更新相应的约束，但是这很可能会***与既有的约束冲突***，iOS7很有可能crash。设置`translatesAutoresizingMaskIntoConstraints = NO`是官方推荐的做法，所以我们可以认为更改`frame`不会改变约束），约束应该通过约束更新的方式改变。想要在`Autolayout`改变后立即看到`frame`的变化，请调用以下代码来立即刷新UI的布局
+- `Autolayout`改变可以改变`view`的`frame`，但是`frame`的改变并不能改变`Autolayout`的约束规则（当`translatesAutoresizingMaskIntoConstraints = YES`时，会根据`autoresizingMask`的相应设置更新相应的约束，但是这很可能会***与既有的约束冲突***，iOS7很有可能crash。设置`translatesAutoresizingMaskIntoConstraints = NO`是推荐的做法，所以我们可以认为更改`frame`不会改变约束），约束应该通过约束更新的方式改变。想要在`Autolayout`改变后立即看到`frame`的变化，请调用以下代码来立即刷新UI的布局
 {% highlight objective-c %}
 - (void)setNeedsLayout;
 - (void)layoutIfNeeded;
