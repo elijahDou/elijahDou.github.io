@@ -101,7 +101,6 @@ class Jukebox: NSObject {
     var library: Set<String>
     
     var nowPlaying: String?
-    
     var isCurrentlyPlaying: Bool {
         return nowPlaying != nil
     }
@@ -115,7 +114,7 @@ class Jukebox: NSObject {
     }
 }
 
-Here’s how it’s imported by Objective-C:
+// Here’s how it’s imported by Objective-C:
 
 @interface Jukebox : NSObject
 @property (nonatomic, copy) NSSet<NSString *> * __nonnull library;
