@@ -2,9 +2,11 @@
 layout: post
 title: "Using Swift with Cocoa and Objective C 总结"
 description: ""
-category:swift
+category: swift
 tags: [ios, swift]
 ---
+
+
 ### 本文是阅读Apple官方文档***Using Swift with Cocoa and Objective-C (Swift 2.2)***的总结，方便以后翻阅
 
 
@@ -72,8 +74,25 @@ if let fifthCharacter = myObject.characterAtIndex?(5) {
 
 
 #### 轻量级泛型
-##### 
+##### OC中的Foundation框架的集合类的泛型才能转到swift中，其他类型的泛型不能转到swift 及没有泛型
+{% highlight objective-c %}
+@property NSArray<NSDate *> *dates;
+@property NSSet<NSString *> *words;
+@property NSDictionary<NSURL *, NSData *> *cachedData;
 
+// swift
+var dates: [NSDate]
+var words: Set<String>
+var cachedData: [NSURL: NSData]
+{% endhighlight %}
+
+
+
+#### extensions
+##### swift的extensions相当于OC的category。extensions可以扩展已存在类 结构体 枚举类型 属性（属性扩展 必须为 计算属性），还可以扩展在OC中定义的这些类型。
+##### extensions不能向类 结构体 枚举中添加存储属性，只能是 计算属性
+##### extensions不需子类化 就可以使一个类遵守某个protocol，如果这个protocol是定义在swift中的，那么还可以使swift和OC中定义的结构体和枚举实现该protocol。
+##### extensions还可以重写OC类型中 已存在的方法和属性
 
 
 
@@ -208,9 +227,27 @@ class Jukebox: NSObject {
 
 
 
+### 用OC的行为方式写swift类
+#### 继承OC类
+##### `subclassName: superclassName`  如果要重写OC中的类 要用`override`关键字
+
+
+#### NSCoding
+##### NSCoding协议必须实现`init(coder:)`   实现该协议的类的 子类中 如果有一个或多个***自定义的初始化方法*** 或者 其他没有初始化值的属性 也必须要重写这个方法
+##### 从SB或者用`NSUserDefaults or NSKeyedArchiver`加载的对象 必须要完全实现改方法
 
 
 
+#### 实现协议
+##### OC中的协议转到swift中，会在父类后面用`,`分隔 跟随协议名称
+##### 声明一个类型遵守单个协议 `id<SomeProtocol>` -> `var textFieldDelegate: UITextFieldDelegate`
+##### 声明一个类型遵守多个协议 `id<SomeProtocol, AnotherProtocol>` -> `var tableViewController: protocol<UITableViewDataSource, UITableViewDelegate>`
+##### note：因为在swift中 类的命名空间和协议未定义，所以OC中的`NSObject`协议映射为`NSObjectProtocol`
+
+
+
+#### 初始化方法 和 反初始化方法
+##### 
 
 
 
