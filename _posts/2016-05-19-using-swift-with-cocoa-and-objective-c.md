@@ -19,7 +19,63 @@ tags: [ios, swift]
 
 
 #### 存取属性
+##### OC中的`@property`声明的属性转到swift中，规则如下：
+- 有为空性属性的属性（`nonnull, nullable, and null_resettable`）转到swift对应于` optional 和 non-optional`类型
+- OC的只读属性 在swift中表示为 计算属性 并只有一个getter（`{ get }`）
+- OC的`weak`属性 在swift中用 `weak`关键字表示 （`weak var`）
+- OC中的`assign, copy, strong, or unsafe_unretained` 在swift中表示为一些 适当的存储
+- OC中属性的原子性(`atomic and nonatomic`) 在swift中没有对应的属性声明的映射，但是从swift中调用OC中的属性时，其原子性的实现仍然有效
+- OC中的属性`getter= and setter=` 在swift中忽略
+
+
+
+
+#### id的兼容性
+##### swift中的`AnyObject`对应OC中的`id`，可以在`AnyObject`类型的对象上 调用任意OC的方法和属性 并且不需要类型转换，包括用`@objc`属性标记的OC兼容的属性和方法
+
+
+
+#### Unrecognized Selectors and Optional Chaining
+##### 因为`AnyObject`类型的对象的 值 到runtime时才回确定，所以很可能导致不安全的代码。跟OC一样 可能会抛出Unrecognized Selector
+##### swift使用`optionals`保证代码的安全，可以像使用protocol中的可选方法一样，使用optional chaining语法 在`AnyObject`类型的对象上调用方法  
+##### note：在`AnyObject`类型的对象上存取一个 属性 总是返回一个optional value。如果这个属性 正常情况下 返回optional的值，那么返回值会是双层包装的optional类型,如`AnyObject?!`
+##### 虽然swift不强制解包装 `AnyObject`对象调用方法的返回值，但是为了安全编码，推荐使用解包装
+
+{% highlight swift %}
+// myObject has AnyObject type and NSDate value
+let myCount = myObject.count
+// myCount has Int? type and nil value
+let myChar = myObject.characterAtIndex?(5)
+// myChar has unichar? type and nil value
+if let fifthCharacter = myObject.characterAtIndex?(5) {
+    print("Found \(fifthCharacter) at index 5")
+}
+// conditional branch not executed
+{% endhighlight %}
+
+
+
+#### 向下转换 AnyObject
+##### 当`AnyObject`类型的对象的底层数据类型已知或者可推断时，推荐向下转换到一个确定类型。因为`AnyObject`可以是任意类型，向下转换到确定类型不保证一定成功。
+##### 条件类型转换操作符`as?` 返回一个optional value的目标类型。
+##### 若确定是某一种类型，可使用强制类型转换符`as!`。注意 一旦强转失败 在runtime时会出错
+
+
+
+#### Nullability and Optionals
+##### OC中为初始化的指针为NULL（nil）,在swift中 ***所有类型***的值都是non-null的，并用`optional`类型去封装值缺失，用nil表示
+##### OC中的Nullability可以用（`_Nullable _Nonnull nullable nonnull null_resettable`）标记，或者用`NS_ASSUME_NONNULL_BEGIN and NS_ASSUME_NONNULL_END`宏包裹某个区域。如果OC代码没有这些标记，转swift时 不能区分到底是optional还是non-optional引用 所以只能标记为隐式解封装的optional（implicitly unwrapped optional）
+- `_Nonnull`标记 转为non-optional
+- `_Nullable`标记 转为optional
+- 没有Nullability标记声明的 转为 implicitly unwrapped optional
+
+
+
+#### 轻量级泛型
 ##### 
+
+
+
 
 
 #### Closures
