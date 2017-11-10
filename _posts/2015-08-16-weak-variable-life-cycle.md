@@ -13,43 +13,44 @@ tags: [weak, variable, life cycle]
 #### 之前对`weak`的实现略有了解，知道它的一个基本的生命周期，但具体是怎么实现的，了解得不是太清晰。今天又翻了翻***《Objective-C高级编程》***关于`__weak`的讲解，在此做个笔记。
 
 ##### 我们以下面这行代码为例：
-{% highlight objective-c %}
+
+```objc
 {
     id __weak obj1 = obj;
 }
-{% endhighlight %}
+```
 
 #### 当我们初始化一个`weak`变量时，`runtime`会调用`objc_initWeak`函数。这个函数在`Clang`中的声明如下：
-{% highlight objective-c %}
+```objc
 id objc_initWeak(id *object, id value);
-{% endhighlight %}
+```
 
 ##### 其具体实现如下：
-{% highlight objective-c %}
+```objc
 id objc_initWeak(id *object, id value)
 {
     *object = 0;
     return objc_storeWeak(object, value);
 }
-{% endhighlight %}
+```
 
 ##### 示例代码轮换成编译器的模拟代码如下：
-{% highlight objective-c %}
+```objc
 id obj1;
 objc_initWeak(&obj1, obj);
-{% endhighlight %}
+```
 
 #### 因此，这里所做的事是先将obj1初始化为0(nil)，然后将obj1的地址及obj作为参数传递给objc_storeWeak函数。
 
 `objc_initWeak`函数有一个前提条件：就是object必须是一个没有被注册为`__weak`对象的有效指针。而`value`则可以是`null`，或者指向一个有效的对象。
 
 如果`value`是一个空指针或者其指向的对象已经被释放了，则`object`是`zero-initialized`的。否则，`object`将被注册为一个指向`value`的`__weak`对象。而这事应该是`objc_storeWeak`函数干的。`objc_storeWeak`的函数声明如下：
-{% highlight objective-c %}
+```objc
 id objc_storeWeak(id *location, id value);
-{% endhighlight %}
+```
 
 ##### 其具体实现如下：
-{% highlight objective-c %}
+```objc
 id objc_storeWeak(id *location, id newObj)
 {
     id oldObj;
@@ -83,21 +84,21 @@ id objc_storeWeak(id *location, id newObj)
     ......
     return newObj;
 }
-{% endhighlight %}
+```
 
 #### 我们撇开源码中各种锁操作，来看看这段代码都做了些什么。在此之前，我们先来了解下`weak`表和`SideTable`。
 
 #### `weak`表是一个弱引用表，实现为一个`weak_table_t`结构体，存储了某个对象相关的的所有的弱引用信息。其定义如下(具体定义在objc-weak.h中)：
-{% highlight objective-c %}
+```objc
 struct weak_table_t {
     weak_entry_t *weak_entries;
     size_t    num_entries;
     ......
 };
-{% endhighlight %}
+```
 
 #### 其中`weak_entry_t`是存储在弱引用表中的一个内部结构体，它负责维护和存储指向一个对象的所有弱引用hash表。其定义如下：
-{% highlight objective-c %}
+```objc
 struct weak_entry_t {
     DisguisedPtr referent;
     union {
@@ -112,15 +113,15 @@ struct weak_entry_t {
         };
     };
 };
-{% endhighlight %}
+```
 
 #### 其中referent是被引用的对象，即示例代码中的obj对象。下面的`union`即存储了所有指向该对象的弱引用。由注释可以看到，当`out_of_line`等于0时，hash表被一个数组所代替。另外，所有的弱引用对象的地址都是存储在`weak_referrer_t`指针的地址中。其定义如下：
-{% highlight objective-c %}
+```objc
 typedef objc_object ** weak_referrer_t;
-{% endhighlight %}
+```
 
 #### SideTable是一个用C++实现的类，它的具体定义在NSObject.mm中，我们来看看它的一些成员变量的定义：
-{% highlight objective-c %}
+```objc
 class SideTable {
 private:
     static uint8_t table_buf[SIDE_TABLE_STRIPE * SIDE_TABLE_SIZE];
@@ -129,23 +130,23 @@ public:
     weak_table_t weak_table;
     ......
 }
-{% endhighlight %}
+```
 
 #### `RefcountMap refcnts`，大家应该能猜到这个做什么用的吧？看着像是引用计数什么的。哈哈，貌似就是啊，这东东存储了一个对象的引用计数的信息。当然，我们在这里不去探究它，我们关注的是`weak_table`。这个成员变量指向的就是一个对象的`weak`表。
 
 #### 了解了`weak`表和`SideTable`，让我们再回过头来看看`objc_storeWeak`。首先是根据`weak`指针找到其指向的老的对象：
-{% highlight objective-c %}
+```objc
 oldObj = *location;
-{% endhighlight %}
+```
 
 #### 然后获取到与新旧对象相关的SideTable对象：
-{% highlight objective-c %}
+```objc
 oldTable = SideTable::tableForPointer(oldObj);
 newTable = SideTable::tableForPointer(newObj);
-{% endhighlight %}
+```
 
 #### 下面要做的就是在老对象的`weak`表中移除指向信息，而在新对象的`weak`表中建立关联信息：
-{% highlight objective-c %}
+```objc
 if (oldObj) {
     weak_unregister_no_lock(&oldTable->weak_table, oldObj, location);
 }
@@ -153,17 +154,17 @@ if (newObj) {
     newObj = weak_register_no_lock(&newTable->weak_table, newObj,location);
     // weak_register_no_lock returns NULL if weak store should be rejected
 }
-{% endhighlight %}
+```
 
 #### 接下来让弱引用指针指向新的对象：
-{% highlight objective-c %}
+```objc
 *location = newObj;
-{% endhighlight %}
+```
 
 #### 最后会返回这个新对象：
-{% highlight objective-c %}
+```objc
 return newObj;
-{% endhighlight %}
+```
 
 #### `objc_storeWeak`的基本实现就是这样。当然，在`objc_initWeak`中调用`objc_storeWeak`时，老对象是空的，所有不会执行`weak_unregister_no_lock`操作。
 
@@ -177,7 +178,7 @@ return newObj;
 - 最后调用`objc_clear_deallocating`
 
 #### 我们重点关注一下最后一步，`objc_clear_deallocating`的具体实现如下：
-{% highlight objective-c %}
+```objc
 void objc_clear_deallocating(id obj) 
 {
     ......
@@ -191,10 +192,10 @@ void objc_clear_deallocating(id obj)
     }
     ......
 }
-{% endhighlight %}
+```
 
 #### 我们可以看到，在这个函数中，首先取出对象对应的`SideTable`实例，如果这个对象有关联的弱引用，则调用`arr_clear_deallocating`来清除对象的弱引用信息。我们来看看`arr_clear_deallocating`具体实现：
-{% highlight objective-c %}
+```objc
 PRIVATE_EXTERN void arr_clear_deallocating(weak_table_t *weak_table, id referent) {
     {
         weak_entry_t *entry = weak_entry_for_referent(weak_table, referent);
@@ -218,7 +219,7 @@ PRIVATE_EXTERN void arr_clear_deallocating(weak_table_t *weak_table, id referent
         weak_table->num_weak_refs--;
     }
 }
-{% endhighlight %}
+```
 
 #### 这个函数首先是找出对象对应的`weak_entry_t`链表，然后挨个将弱引用置为`nil`。最后清理对象的记录。
 
